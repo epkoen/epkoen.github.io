@@ -30,7 +30,7 @@
 }
 
 .card-container {
-    width: 450px;
+    width: 450px;/html/
     background-color: aqua;
     border: 2px groove red;
     border-radius: 10px;
@@ -80,5 +80,5 @@
 
 /* Background image from https://coolbackgrounds.io/ */
 body {
-    background-image: url(images/EpkkndProjectsS21BackgroundImage.png);
+    background-image: url(../images/EpkkndProjectsS21BackgroundImage.png);
 }
