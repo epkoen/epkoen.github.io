@@ -1,0 +1,84 @@
+/* References:
+    1. https://fonts.google.com
+    2. https://coolbackgrounds.io/
+*/
+
+/* Fonts from  https://fonts.google.com */
+@font-face {
+    font-family: 'DotGothic16', sans-serif;
+    src: url(Fonts/DotGothic16/DotGothic16-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Montserrat', sans-serif;
+    src: url(Fonts/Montserrat/Montserrat-Thin);
+}
+
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url(Fonts/Roboto/Roboto-bold.ttf);
+}
+
+.flex-container {
+    margin: 150px auto auto auto;
+    display: flex;
+    flex-flow: row wrap;
+    width: 90%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.card-container {
+    width: 450px;
+    background-color: aqua;
+    border: 2px groove red;
+    border-radius: 10px;
+    height: 525px;
+    margin: 5% auto 5% auto;
+    box-shadow: 10px 10px;
+}
+
+.card-img {
+    border-bottom: 10px solid red;
+    height: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.img-container {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.card-title {
+    margin: 10px auto;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+    font-family: DotGothic16;
+}
+
+.card-desc {
+    font-size: 18px;
+    text-align: center;
+    font-family: Montserrat;
+    font-weight: 900;
+    padding: 5px;
+}
+
+.card-link {
+    text-align: center;
+}
+
+.link {
+    color: red;
+    font-family: Roboto;
+    font-size: 22px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* Background image from https://coolbackgrounds.io/ */
+body {
+    background-image: url(images/EpkkndProjectsS21BackgroundImage.png);
+}

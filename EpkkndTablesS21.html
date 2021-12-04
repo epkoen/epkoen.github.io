@@ -1,0 +1,195 @@
+<!-- References
+    1.https://myzou.missouri.edu/
+    2.http://ps.missouri.edu/onlineProducts/station
+-->
+<!-- 
+    Name: Ethan Koen
+    Pawprint: Epkknd    
+    Date: 2/13/2021
+    Challenge: Tables S21
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="EpkkndTablesS21.css">
+        <title>Hello, world!</title>
+        
+        <script src="jquery-3.5.1.js"></script>
+        <script>
+           $(function(){
+                $("#navigation").load("Navbar.html");
+           });
+        </script>
+    </head>
+    <body>
+        <div id="navigation"></div>
+        <div>
+           <div class="container-fluid topTable">
+                <table class="table text-center table-striped">
+                    <thead class="thead-dark">
+                        <tr class="text-center">
+                            <th class="koen " colspan="12">Koen's Course History</th>
+                        </tr>
+
+                        <tr class="text-center rowImg">
+                                <th colspan="1"> <img class="tiger img-responsive float-left" src="images/EpkkndTablesS21Tiger.png" alt="tiger"> </th>
+                                
+                                <th colspan="9" class="text-center university" >University of Missouri - Columbia</th>
+
+                                <th colspan="2"> <img class="tiger img-responsive float-right" src="images/EpkkndTablesS21Tiger.png" alt="tiger"> </th>
+                            
+                        </tr>
+                            
+                        <tr class="text-center headers"> 
+                            <th colspan="1" scope="col">Department</th>
+                            <th colspan="2" scope="col">Course</th>
+                            <th colspan="1" scope="col">Course#</th>
+                            <th colspan="4" scope="col">Description</th>
+                            <th colspan="2" scope="col">Professor</th>
+                            <th colspan="1" scope="col">Grade</th>
+                            <th colspan="1" scope="col">Units</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-light">
+                        <tr>
+                            <td colspan="1" rowspan="2" class="align-middle dept" id="CS">CMP_SC</td>
+                            <td colspan="2" class="course">Intro to Computer Science</td>
+                            <td colspan="1" class="course#">1000</td>
+<!--                            Text from https://myzou.missouri.edu/ -->
+                            <td colspan="4" class="desc">	
+This course introduces the Computer Science field, including the history of computers, career opportunities, and ethical/social issues.  There will be lectures given by MU Computer Science faculty to discuss exciting fields as well as career advisement given by Computer Science industry representatives.</td>
+                            <td colspan="2" class="Professor">Jurczyk</td>
+                            <td colspan="1" class="Grade">C</td>
+                            <td colspan="1" class="Units">1</td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2" class="course">Algorithm Design / Programming 1</td>
+                            <td colspan="1" class="course#">1050</td>
+<!--                            Text from https://myzou.missouri.edu/ -->
+                            <td colspan="4" class="desc">	
+This course provides experience in developing algorithms, designing, implementing programs. Topics include syntax/semantics, flow control, loops, recursion, I/O, arrays, strings and pointers</td>
+                            <td colspan="2" class="Professor">Ries</td>
+                            <td colspan="1" class="Grade">A-</td>
+                            <td colspan="1" class="Units">4</td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="1" rowspan="3" class="align-middle dept" id="IT">IT</td>
+                            <td colspan="2" class="course">Programming Languages and Paradigms</td>
+                            <td colspan="1" class="course#">2040</td>
+<!--                            Text from https://myzou.missouri.edu/ -->
+                            <td colspan="4" class="desc">	
+This course presents programming principles and their syntactical representation and implementation across languages including those that are compiled and interpreted. The course shows how to implement algorithms and data structures to solve problems while utilizing paradigms offered by the programming languages such as procedural, object-oriented, protocol-oriented, functional, and declarative. Language support for strong and weak typing and type safety are covered along with support for optional values. Provides experience in developing algorithms and determining their efficiency, designing application architecture, and developing applications. Building and using libraries/application programming interfaces is covered. Git and GitHub are used for code versioning and collaboration. Integrated development environments (IDEs) are used for managing, building, debugging, and testing applications. </td>
+                            <td colspan="2" class="Professor">Musser / Culmer</td>
+                            <td colspan="1" class="Grade">A-</td>
+                            <td colspan="1" class="Units">3</td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2" class="course">Fundamentals of Network Technology</td>
+                            <td colspan="1" class="course#">2810</td>
+<!--                            Text from https://myzou.missouri.edu/ -->
+                            <td colspan="4" class="desc">	
+This course introduces the Computer Science field, including the history of computers, career opportunities, and ethical/social issues.  There will be lectures given by MU Computer Science faculty to discuss exciting fields as well as career advisement given by Computer Science industry representatives.  Prerequisites: Restricted to freshman/sophomore students who are BS Computer Science, BS Information Technology and Undeclared Engineering or Pre-Engineering may enroll in the class without permission</td>
+                            <td colspan="2" class="Professor">Wang</td>
+                            <td colspan="1" class="Grade">C</td>
+                            <td colspan="1" class="Units">3</td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2" class="course">Web Application Development 1</td>
+                            <td colspan="1" class="course#">2830</td>
+<!--                            Text from https://myzou.missouri.edu/ -->
+                            <td colspan="4" class="desc">	
+This course will attempt to provide a comprehensive understanding of the evolution, the technologies, and the tools of the Internet. In particular, issues pertaining to the World Wide Web and Multimedia (HTML, CGI, Web based applications) will be discussed in detail.</td>
+                            <td colspan="2" class="Professor">Wergeles</td>
+                            <td colspan="1" class="Grade">N/A</td>
+                            <td colspan="1" class="Units">3</td>
+                        </tr>
+                        
+                        <tr>
+                        <td colspan="1" rowspan="2" class="align-middle dept" id="MATH">MATH</td>
+                            <td colspan="2" class="course">Precalculus Mathematics</td>
+                            <td colspan="1" class="course#">1160</td>
+<!--                            Text from https://myzou.missouri.edu/ -->
+                            <td colspan="4" class="desc">	
+Review of elementary algebra. Background material for MATH 1500, including algebraic, trigonometric, logarithmic, exponential functions. </td>
+                            <td colspan="2" class="Professor">Cox-Steib</td>
+                            <td colspan="1" class="Grade">B</td>
+                            <td colspan="1" class="Units">5</td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2" class="course">Finite Mathematics</td>
+                            <td colspan="1" class="course#">1300</td>
+<!--                            Text from https://myzou.missouri.edu/ -->
+                            <td colspan="4" class="desc">	
+	
+A selections of topics in finite mathematics such as: basic financial mathematics, counting methods and basic probability and statistics, systems of linear equations and matrices </td>
+                            <td colspan="2" class="Professor">Praharaj / Gregory</td>
+                            <td colspan="1" class="Grade">C</td>
+                            <td colspan="1" class="Units">1</td>
+                        </tr>
+                    </tbody>
+                     <tr class="annoying">
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                </table>
+            </div>
+        </div>
+        <div class="wrapper text-center container-fluid col-sm-12 ">
+            <div class="row bottom">
+                <div class="col-sm-4">
+                    <div class="card" id="left">
+                        <div class="card-body">
+                            <h3 class="card-title">About Me:</h3>
+                            <h6 class="card-subtitle">Ethan Koen</h6>
+                            <p>I am a student at the University of Missouri - Columbia. I am in my second year with 32 credit hours so far, studying IT.</p>
+                            <img id="MU" class="align-bottom" src="images/EpkkndColumnsS21MU.png" alt="MU">
+                            <!-- image from http://ps.missouri.edu/onlineProducts/stationery/ -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card" id="middle">
+                        <div class="card-body">
+                            <h3 class="card-title"> Languages</h3>
+                            <ul>
+                                <li>C</li>
+                                <li>C#</li>
+                                <li>HTML</li>
+                                <li>CSS</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card" id="right">
+                        <div class="card-body">
+                            <h3 class="card-title">Work Experience:</h3>
+                            <p>I have had a job ever since I was 16, working mostly in the food-service industry. I started out working at a local pizza place, and once I started at the University I got a job at Dominos. This semester, because I have an increased workload from my classes, I had to stop working there.</p>          
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+        <h5>Updated 3/19/2021</h5>
+    </body>
+</html>

@@ -1,0 +1,201 @@
+<!--
+Name: Ethan Koen
+Pawprint: epkknd
+Date: 2/26/21
+Challenge:To-Do ListS21
+-->
+<!--
+            References:
+
+    1. https://fonts.googleapis.com/icon?family=Material+Icons
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>To-Do List</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="jquery-3.5.1.js"></script>
+<!--         Google Icons-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="EpkkndToDoListS21.css">
+        <script>
+            $(document).ready(function(){
+                var rows = 0;
+                // Change Theme Button
+                $("#toggleTheme").click(function(){
+                    $("body").toggleClass("bg-dark darktext");
+                    $("button").toggleClass("darkbuttons");
+                });
+                
+                // Add New Item Button
+                $("#addItem").click(function(){
+                    $("#form").show("slow");
+                }); 
+                // Clear Button
+                $("#clearForm").click(function(){
+                    $("#inTitle").val("");
+                    $("#inType").val("default");
+                    $("#inPriority").val("#inPriority.defaultValue");
+                    $("#inDate").val("#inDate.defaultValue")
+                });
+                // Add Item to List Button
+                $("#addForm").click(function(){
+                    var title = $("#inTitle").val();
+                    var type = $("#inType").val();
+                    var priority = $("#inPriority").val();
+                    var date = $("#inDate").val();
+                    var checkbox = 1;
+                    console.log(title);
+                    console.log(type);
+                    console.log(priority);
+                    console.log(date);
+                    if ((title == "") || (type == null) || (date == "")){
+                        alert("All fields are required!")
+                        return;
+                    }
+                    // Appends items to list
+                    rows++;
+                    $("#title").append('<textarea class="row' + rows + '" rows="1" cols="20">' + title + '</textarea><br class="row' + rows + '">')
+                    $("#type").append('<p class="row' + rows + '">' + type + '</p>');
+                    
+                    var stars;
+                switch(Number(priority)){
+                    case 0:
+                        $("#priority").append('<i class="material-icons row' + rows + '">star_border star_border star_border star_border star_border</i><br class="row' + rows + '">');
+                        break;
+                    case 1:
+                        $("#priority").append('<i class="material-icons row' + rows + '">star star_border star_border star_border star_border</i><br class="row' + rows + '">');
+                        break;
+                    case 2:
+                        $("#priority").append('<i class="material-icons row' + rows + '">star star star_border star_border star_border</i><br class="row' + rows + '">');
+                        break;
+                    case 3:
+                        $("#priority").append('<i class="material-icons row' + rows + '">star star star star_border star_border</i><br class="row' + rows + '">');
+                        break;
+                    case 4:
+                        $("#priority").append('<i class="material-icons row' + rows + '">star star star star star_border</i><br class="row' + rows + '">')
+                        break;
+                    case 5:
+                        $("#priority").append('<i class="material-icons row' + rows + '">star star star star star</i><br class="row' + rows + '">');
+                }
+                    $("#date").append('<p class="row' + rows + '">' + date + "</p>");
+                    $("#action").append('<button class="complete row' + rows + '" id="' + rows + '" onclick="removeCompleted(this.id)">Complete</button>');
+                    // Clears form after successful appending
+                    $("#inTitle").val("");
+                    $("#inType").val("default");
+                    $("#inPriority").val("#inPriority.defaultValue");
+                    $("#inDate").val("")        
+                });
+                // Hide Form when finished
+                $("#finishForm").click(function(){
+                    $("#form").hide("slow");
+                });
+            });
+            
+            function changeTitle() {
+                var title = prompt("Enter the new title", "To-Do List")
+                document.getElementById("header").innerHTML = title;
+            }
+            
+            function removeCompleted(buttonId){
+                $(".row" + buttonId).remove();
+            }
+
+        </script>
+    </head>
+    <body class="bg-light">
+        <div id="wrapper" class="container-fluid">
+            <header>
+                <h2 id="header" ondblclick="changeTitle()">To-Do List</h2>
+                <button id="toggleTheme">Toggle Theme</button>
+                <a id="projects" href="EpkkndProjectsS21.html">Back to Projects</a>
+                <hr>
+            </header>
+        
+            <div class="container-fluid" id="toDo">
+                <div class="row text-center">
+                    <div class="col-sm-3">
+                        <h3>Title</h3>
+                    </div>
+                    <div class="col-sm-2">
+                        <h3>Type</h3>
+                    </div>
+                    <div class="col-sm-3">
+                        <h3>Priority</h3>
+                    </div>
+                    <div class="col-sm-3">
+                        <h3>Date</h3>
+                    </div>
+                    <div class="col-sm-1">
+                        <h3>Action</h3>
+                    </div>
+                </div>
+                <div class="text-center row" id="list">
+                    <div id="title" class="col-sm-3 col-lg-3">
+                        
+                    </div>
+                    <div id="type" class="col-sm-2 col-lg-2">
+                        
+                    </div>
+                    <div id="priority" class="col-sm-3 col-lg-3">
+                    
+                    </div>
+                    <div id="date" class="col-sm-3 col-lg-3">
+                        
+                    </div>
+                    <div id="action" class="col-sm-1 col-lg-1">
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="col-sm-12 text-center container-fluid">
+                        <button id="addItem" type="button">Add New Item</button>
+            </div>
+            
+            
+            <div class="container-fluid" id="form">
+                <form>
+                    <div class="form-row">
+                        <label for="inTitle">Title:</label>
+                        <input id="inTitle" type="text" name="inTitle">
+                    </div>
+                    <div class="form-row">
+                        <label for="inType">Type:</label>
+                        <select id="inType" name="inType">
+                            <option value="default" selected disabled>Select a Type</option>
+                            <option value="Education">Education</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Work">Work</option>
+                            <option value="Programming">Programming</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <label for="inPriority">Priority:</label>
+                        <input id="inPriority" type="range" name="inPriority" min="0" max="5">
+                    </div>
+                    <div class="form-row">
+                        <label for="inDate">Due Date:</label>
+                        <input id="inDate" type="date" name="inDate">
+                    </div>
+                    <div class= "form-row text-center" >
+                        <div class="col-auto">
+                            <button type="button" id="clearForm">Clear</button>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" id="addForm">Add Item to List</button>
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" id="finishForm">Finished</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </body>
+</html>

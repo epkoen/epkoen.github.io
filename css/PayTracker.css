@@ -1,0 +1,52 @@
+#nav {
+    border: 1px solid gray;
+}
+
+#loginWidget {
+    border: 2px solid black;
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    width: 500px;
+}
+#Loginbg {
+    width: 66%;
+    height: 100%;
+    background-color: gray;
+    z-index: -1;
+    margin: 0 auto;
+
+}
+#video {
+    margin: 10px auto;
+    text-align: center;
+}
+#paystub {
+    margin: 10px auto;
+    text-align: center;
+}
+#php {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    
+}
+.nav-item {
+    border-right: 1px solid gray;
+}
+
+.wrapper {
+    border: 2px solid black;
+    margin: 0 auto;
+    width: 700px;
+    text-align: center;
+}
+h1 {
+    font-family: Anton, sans-serif;
+}
+
+p, label {
+    font-family: Ubuntu, sans-serif;
+}

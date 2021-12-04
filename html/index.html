@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Pay Tracker</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Ubuntu&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/PayTracker.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script>
+            $(function(){
+                $.get("nav.html", function(data){
+                    $("#navbar").replaceWith(data);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="navbar"></div>
+        <!-- Image from https://paystubformat.info/wp-content/uploads/2018/02/paycheck-stub-example-advance-sample-pay-stub.png -->
+        <div id="paystub"><img src="images/paystub.png" alt="Paystub"></div>
+            <div class="container-fluid">
+              <h1 class="text-center">About PayTracker</h1>
+              <div class="row">
+                <div class="col-lg-6">
+                  <p>This application was created by Ethan Koen, a student at the University of Missouri - Columbia, for CS2830. The primary function is to keep track of your pay. It also can do some basic calculations based on the paychecks: the average weekly pay and the total income since you started entering your paychecks. </p>
+                </div>
+                <div class="col-lg-6">
+                  <p>It utilizes HTML, CSS, JavaScript, jQuery, PHP, and MYSQL.</p>
+                </div>
+              </div>
+            </div>
+        <img id="php" src="images/php.png" alt="Powered By PHP">
+    </body>
+</html>

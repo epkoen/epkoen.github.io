@@ -1,0 +1,26 @@
+<!--
+    References:
+    1. https://stackoverflow.com/questions/35427641/how-to-dynamically-set-the-active-class-in-bootstrap-navbar
+-->
+<nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
+	<div class="container-fluid">
+        	<div class="navbar-header">
+                	<a class="navbar-brand" id="PortfolioLink" href="index.html">Ethan Koen</a>
+                </div>
+                <ul class="navbar-nav mr-auto">
+                	<li class="nav-item"><a class="nav-link" href="EpkkndColumnsS21.html" id="SkillsLink">Skills</a></li>
+                	<li class="nav-item"><a class="nav-link" href="EpkkndTablesS21.html" id="CoursesLink">Courses</a></li>
+                	<li class="nav-item"><a class="nav-link" href="EpkkndProjectsS21.html" id="ProjectsLink">Projects</a></li>
+                </ul>
+        </div>
+</nav>
+<script>
+    $(function(){
+        //Code from Reference #1
+        var url = window.location;
+        $('li a[href="'+ url + '"]').parent().addClass('active');
+        $('li a').filter(function(){
+            return this.href == url;
+        }).parent().addClass('active');
+    });
+</script>

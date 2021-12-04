@@ -1,0 +1,135 @@
+.name {
+    margin: 7px;
+    font-size: 30px;
+    font-family: monospace;
+}
+
+.header {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    position: relative;
+    color: blueviolet;
+}
+
+.container {
+    padding-top: 400px;
+    padding-bottom: 400px;
+}
+
+.navbarList{
+    margin-right: 10px;
+}
+
+.wrapper {
+    padding: 10px;
+    width: 1122px;
+    border: 9px dotted gold;
+    border-radius: 25px;
+    margin: 0 auto;
+    background-color: darkslategray;
+}
+
+.left, .right {
+    padding: 21px;
+    margin: 21px;
+    height: 425px;
+    border: 6px solid blueviolet;
+    border-radius: 25px;
+    background-color: slategray;
+    text-align: left;
+    float: left;
+}
+
+.left {
+    width: 244px;
+}
+
+.middle {
+    float: left;
+    text-align: left;
+    width: 435px;
+    margin: 21px;
+}
+            
+.right {
+    width: 209px;
+    text-align: left;
+    font-size: 13px
+}
+            
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+        
+.middleColumn {
+    border: 6px solid blueviolet;
+    border-radius: 25px;
+    margin-bottom: 26px;
+    padding: 10px;
+    background-color: slategray;
+    width: 376px;
+    padding: 22px;
+}
+
+#navbar {
+    background-color: blueviolet;
+    width: 100%;
+    position: fixed;
+    padding: 0;
+    list-style: none; 
+    display: inline-flex;
+}
+
+#me {
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    max-width: 40%;
+    max-height: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 6px dotted goldenrod;    
+}
+
+#middleTop {
+    height: 211px;    
+}
+
+#footer {
+    color: slateblue;
+}
+
+#mizzou {
+    display: block;
+    width: 99%; 
+    border-radius: 100%;
+}
+
+#MU {
+    display: block;
+    width: 100%; 
+}
+
+#Skills {
+    padding-top: 100px;
+}
+
+p {
+    text-align: center;
+    font-size: 25px;
+    color: gold;
+    background-color: black;
+}
+
+body {
+    background-color: black;
+}
+
+dd {
+    font-weight: 600;
+}
+

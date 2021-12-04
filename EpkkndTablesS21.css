@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url(Fonts/Roboto/Roboto-bold.ttf);
+}
+@font-face {
+    font-family: 'Ubuntu', sans-serif;
+    src: url(Fonts/Ubuntu/Ubuntu-Regular.ttf);
+}
+#IT {
+    background-color: gold
+}
+#CS {
+    background-color: yellow;
+}
+#MATH {
+    background-color: goldenrod;
+}
+#MU{
+    height: 10vw; 
+}
+#left, #right, #middle {
+    background-color: beige;
+    border-radius: 10%;
+}
+#left {
+    box-shadow: -6px 10px slategray;
+}
+#middle {
+    box-shadow: 0px 10px slategray;
+}
+#right {
+    box-shadow: 6px 10px slategray;
+}
+.tiger {
+    height: 80px;
+}
+.headers th {
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+.koen{
+    font-size: 50pt;
+    width: 100%;
+    margin-top: 100px;
+    text-align: center; 
+}
+.university {
+    font-size: 30pt;
+}
+.headers {
+    font-size: 20pt;
+}
+.annoying {
+    visibility: hidden;
+}
+.wrapper {
+    display: block;
+    width: 85%;
+}
+.table, .topTable {
+    margin: auto;
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-top: 100px;
+}
+.card {
+    margin: 2%;
+    width: 23vw;
+    height: 27vw;
+    overflow: auto;
+}
+
+.bottom {
+    display: inline-flex;
+    margin: auto;
+}
+h5{
+    text-align: left;
+    margin-left: 10px;
+}
+thead, h3, h5 {
+    font-family: 'Roboto', sans-serif;
+}
+p{
+    font-family: 'Ubuntu', sans-serif;
+}
+tbody {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 15pt;
+}
+td {
+    text-align: center;
+    border: 1px solid black;
+}

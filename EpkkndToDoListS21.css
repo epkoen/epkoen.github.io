@@ -1,0 +1,44 @@
+h2{
+    text-align: center;
+}
+
+#projects{
+    float: right;
+}
+
+#form{
+    display: none;
+    border: 2px solid black;
+    height: 200px;
+    width: 310px;
+    padding: 15px;
+    margin-top: 10px;
+    align-content: center;
+
+}
+
+.darkbuttons{
+    background-color: black;
+    color: white;
+}
+
+.darktext{
+    color: lightgray;
+}
+
+.complete{
+    margin-bottom: 9px
+}
+
+button{
+    background-color: white;
+}
+
+i{
+    font-size: 18px;
+    margin-bottom: 15px
+}
+
+textarea{
+    margin-bottom: 5px;
+}
