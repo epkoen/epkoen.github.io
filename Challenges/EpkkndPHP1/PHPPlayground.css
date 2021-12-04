@@ -1,0 +1,57 @@
+/*
+    References:
+    1. https://www.pexels.com/photo/dark-night-sky-with-bright-stars-3745234/
+*/
+h1{
+    color: white;
+}
+h4{
+    margin: 0;
+    margin-bottom: 5px;
+}
+a:link {
+    color: white;
+}
+a:visited{
+    color: gray;
+}
+html{
+    /* Background from Reference #1 */
+    background-image: url(images/BackgroundImagePHP.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.wrapper{
+    width: 60%;
+    min-height: 30vh;
+    background: rgba(0,0,0,0.25);
+    border: outset 5px slategray;
+    margin: 0 auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+    overflow: auto;
+    position: relative;
+    top: 50px;
+}
+#Functions{
+    width: 80%;
+    display: none;
+    margin: 0 auto;
+    padding-top: 10px;
+    min-height: 10vh;
+    position: relative;
+    top: 10px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    border: 2px solid skyblue;
+    border-radius: 5px;
+}
+#Name, #Hamming, #Password, #List, #Cylinder{
+    display: none;
+    margin: 0 auto;
+}
