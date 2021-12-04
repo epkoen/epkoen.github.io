@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--
+    Name: Ethan Koen
+    Pawprint: epkknd
+    Date: 4/9/21
+    Challenge: AJAX S21
+
+    References:
+        1. https://api.jquery.com/jquery.getjson/
+        2. Lexture 20: AJAX
+        3. https://www.w3docs.com/snippets/javascript/how-to-get-the-current-date-and-time-in-javascript.html
+-->
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>NASA API</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <link href="EpkkndAJAX-S21.css" rel="stylesheet">
+        <script src="../../jquery-3.5.1.js"></script>
+        <script>
+        var APIKey = "4sg00aEcmuxyXq0MdXGuX6Q8xtdWWVoa1Qq8yNxV";
+        var manifest = {};
+        var solIndex = {};
+        var photoSource = {};
+        var allCameras = {
+            "FHAZ": "Front Hazard Avoidance Camera",
+            "RHAZ": "Rear Hazard Avoidance Camera",
+            "MAST": "Mast Camera",
+            "CHEMCAM": "Chemistry and Camera Complex",
+            "MAHLI": "Mars Hand Lense Imager",
+            "MARDI": "Mars Descent Imager",
+            "NAVCAM": "Navigation Camera",
+            "PANCAM": "Panoramic Camera",
+            "MINITES": "Miniature Thermal Emission Spectrometer"
+        };
+        var maxSol = 0;
+        // code from https://www.w3docs.com/snippets/javascript/how-to-get-the-current-date-and-time-in-javascript.html
+        let currentDate = new Date()
+        var months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+        let cMonth = months[currentDate.getMonth()];
+        let cYear = currentDate.getFullYear();
+        var cDay;
+        if(currentDate.getDate() < 10){
+            cDay = "0" + currentDate.getDate();
+        } else {
+            cDay = currentDate.getDate();
+        }
+        let todayDate = cYear + "-" + cMonth + "-" + cDay;
+        // end of code from https://www.w3docs.com/snippets/javascript/how-to-get-the-current-date-and-time-in-javascript.html
+        function onLoad(){
+            document.getElementById('video').style = "display: none;";
+            document.getElementById('NASA').style = "display: none;";
+            document.getElementById('Loading').style = "display: block;";
+            document.getElementById('date').max = todayDate;
+            $.getJSON("https://api.nasa.gov/mars-photos/api/v1/manifests/opportunity?api_key=" + APIKey, function(data){
+                if(data){
+                    manifest = data.photo_manifest;
+                    maxSol = manifest.max_sol;
+                    $('#sol').attr('max', maxSol);
+                    var manifestPhotos = manifest.photos;
+                    manifestPhotos.forEach(function(photo){
+                         solIndex[photo.sol] = photo;
+                     });
+                    console.dir(solIndex);
+                } else {
+                    alert("Request successful, but no data was recieved.");
+                }
+            })
+            // fail function from https://api.jquery.com/jquery.getjson/
+            .fail(function(error){
+                alert("Getting the manifest failed!");
+                console.log(error);
+            });
+
+            document.getElementById('Loading').style = "display: none;";
+        }
+
+        function checkSol() {
+            var sol = document.getElementById('sol').value;
+
+            if (!solIndex[sol]){
+                alert("No photos for that sol");
+            } else {
+                var cameras = document.getElementById('cameras');
+                var camerasInManifest = solIndex[sol].cameras;
+                console.dir(camerasInManifest);
+                cameras.innerHTML = "<option value=''>Please Select a Camera</option>";
+                camerasInManifest.forEach(function(camera){
+                    var cameraName = allCameras[camera];
+                    if(!cameraName){
+                        cameraName = camera;
+                    }
+                    cameras.innerHTML += "<option value='" + camera + "'>" + cameraName + "</option>";
+                });
+            }
+
+        }
+        function getImage(){
+            var sol = document.getElementById("sol").value;
+            var cameras = document.getElementById("cameras").value;
+            var rover = "opportunity";
+            var url = "https://api.nasa.gov/mars-photos/api/v1/rovers/" + rover + "/photos?sol=" + sol + "&camera=" + cameras + "&api_key=" + APIKey;
+            console.log(url);
+
+            if(solIndex[sol]){
+                document.getElementById('Loading').style = "display: block;";
+                $.getJSON(url, function(data){
+                    if(data){
+                        var photos = data.photos;
+                        photos.forEach(function(photo,i){
+                            photoSource[i] = photo.img_src;
+                        });
+                        document.getElementById('video').style = "display: none;";
+                        document.getElementById('NASA').src = photoSource[0];
+                        document.getElementById('NASA').style = "display: block;";
+                        var title = "Rover: Opportunity";
+                        var launchDate = "Launch Date: 6-7-2003";
+                        var description = "Opportunity, also known as MER-B (Mars Exploration Rover –B) or MER-1, and nicknamed 'Oppy', is a robotic rover that was active on Mars from 2004 until the middle of 2018. Launched on July 7, 2003, as part of NASA's Mars Exploration Rover program, itlanded in Meridiani Planum on January 25, 2004, three weeks after its twin Spirit (MER-A) touched down on the other side of the planet. With a planned 90-sol duration of activity (slightly less than 92.5 Earth days), Spirit functioned until it got stuck in 2009 and ceased communications in 2010, while Opportunity was able to stay operational for 5111 sols after landing, maintaining its power and key systems through continual recharging of its batteries using solar power, and hibernating during events such as dust storms to save power. This careful operation allowed Opportunity to exceed its operating plan by 14 years, 46 days (in Earth time), 55 times its designed lifespan. By June 10, 2018, when it last contacted NASA, the rover had traveled a distance of 45.16 kilometers (28.06 miles)";
+
+                        var output = "<h1>" + title + "</h1>";
+                        output += "<h3>" + launchDate + "</h3>";
+                        output += "<p>" + description + "</p>";
+                        document.getElementById('textOutput').innerHTML = output;
+                        document.getElementById('Loading').style = "display: none;";
+                    } else {
+                        alert("No photos exist for this sol and camera");
+                    }
+                });
+            } else {
+                alert("No photos exist for that sol");
+            }
+        }
+        //  function referenced from Lecture 20: AJAX
+        function getXMLData(){
+            var xmlHttp = new XMLHttpRequest();
+            var date = document.getElementById('date').value;
+            document.getElementById('video').style = "display: none;";
+            document.getElementById('NASA').style = "display: none;";
+            document.getElementById('Loading').style = "display: block;";
+    		xmlHttp.onload = function() {
+    			if (xmlHttp.status == 200) {
+    				// get the xml Document
+    				var xmlDoc = xmlHttp.responseXML;
+                    console.dir(xmlDoc);
+    				var output = '';
+
+    				var explanation = xmlDoc.getElementsByTagName("explanation")[0].childNodes[0].nodeValue;
+                    var title = xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+                    var url = xmlDoc.getElementsByTagName("url")[0].childNodes[0].nodeValue;
+                    var date = xmlDoc.getElementsByTagName("date")[0].childNodes[0].nodeValue;
+                    var mediaType = xmlDoc.getElementsByTagName('media_type')[0].childNodes[0].nodeValue;
+
+
+                    output += "<h1>" + title + "</h1>";
+                    output += "<h3>" + date + "</h3>";
+                    output += "<p>" + explanation + "</p>";
+
+    				var textOutput = document.getElementById('textOutput');
+
+    				textOutput.innerHTML = output;
+
+                    if(mediaType.localeCompare("image") == 0){
+                        document.getElementById('NASA').style = "display: block;";
+                        document.getElementById('NASA').src = url;
+                        document.getElementById('Loading').style = "display: none;";
+                    } else if (mediaType.localeCompare("video") == 0) {
+                        document.getElementById('video').style = "display: block;";
+                        document.getElementById('video').src = url;
+                        document.getElementById('Loading').style = "display: none;";
+                    }
+
+    			}
+    		};
+
+    		xmlHttp.open("GET", "https://apod.treyshaw.com:5000/v1/apod/?date=" + date + "&api_key=" + APIKey, true);
+    		xmlHttp.send();
+	   } // End of Reference from Lecture 20
+
+
+        </script>
+    </head>
+    <body onload="onLoad()">
+        <div id="wrapper">
+            <div class="container" id="container">
+                <div class="row">
+                    <div id="left" class="col-lg-3">
+                        <h3>Rover Photographs</h3>
+                        <label for="sol">Martian Sol:</label>
+                        <input type="number" id="sol" name="sol" min="1" onchange="checkSol()">
+                        <br>
+                        <select id="cameras" name="cameras" onchange="getImage()">
+                            <option value="">Please input a sol first...</option>
+                        </select>
+                        <br>
+                        <br>
+                        <h3>NASA Photo of the Day</h3>
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" min="1995-06-16" onchange="getXMLData()">
+                        <br>
+                        <a href="/../../EpkkndProjectsS21.html">Return to Projects</a>
+
+                    </div>
+                    <div id="center" class="col-lg-6">
+                        <div id="middle">
+                            <div id="contentBox">
+                                <img id="NASA" class="img-fluid" src="#" alt="Image from NASA">
+                                <iframe id="video" src="#" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <p id="Loading">Loading...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="right" class="col-lg-3">
+                        <div id="textOutput">
+                            <h1>Rover: Opportunity</h1>
+                            <h3>Launch Date: 6-7-2003</h3>
+                            <h3>Description:</h3>
+                            <p>
+                                Opportunity, also known as MER-B (Mars Exploration Rover –B) or MER-1, and nicknamed 'Oppy', is a robotic rover that was active on Mars from 2004 until the middle of 2018. Launched on July 7, 2003, as part of NASA's Mars Exploration Rover program, itlanded in Meridiani Planum on January 25, 2004, three weeks after its twin Spirit (MER-A) touched down on the other side of the planet. With a planned 90-sol duration of activity (slightly less than 92.5 Earth days), Spirit functioned until it got stuck in 2009 and ceased communications in 2010, while Opportunity was able to stay operational for 5111 sols after landing, maintaining its power and key systems through continual recharging of its batteries using solar power, and hibernating during events such as dust storms to save power. This careful operation allowed Opportunity to exceed its operating plan by 14 years, 46 days (in Earth time), 55 times its designed lifespan. By June 10, 2018, when it last contacted NASA, the rover had traveled a distance of 45.16 kilometers (28.06 miles)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
