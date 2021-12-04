@@ -20,7 +20,7 @@ Challenge:To-Do ListS21
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="EpkkndToDoListS21.css">
+        <link rel="stylesheet" href="css/EpkkndToDoListS21.css">
         <script>
             $(document).ready(function(){
                 var rows = 0;
@@ -29,11 +29,11 @@ Challenge:To-Do ListS21
                     $("body").toggleClass("bg-dark darktext");
                     $("button").toggleClass("darkbuttons");
                 });
-                
+
                 // Add New Item Button
                 $("#addItem").click(function(){
                     $("#form").show("slow");
-                }); 
+                });
                 // Clear Button
                 $("#clearForm").click(function(){
                     $("#inTitle").val("");
@@ -60,7 +60,7 @@ Challenge:To-Do ListS21
                     rows++;
                     $("#title").append('<textarea class="row' + rows + '" rows="1" cols="20">' + title + '</textarea><br class="row' + rows + '">')
                     $("#type").append('<p class="row' + rows + '">' + type + '</p>');
-                    
+
                     var stars;
                 switch(Number(priority)){
                     case 0:
@@ -87,19 +87,19 @@ Challenge:To-Do ListS21
                     $("#inTitle").val("");
                     $("#inType").val("default");
                     $("#inPriority").val("#inPriority.defaultValue");
-                    $("#inDate").val("")        
+                    $("#inDate").val("")
                 });
                 // Hide Form when finished
                 $("#finishForm").click(function(){
                     $("#form").hide("slow");
                 });
             });
-            
+
             function changeTitle() {
                 var title = prompt("Enter the new title", "To-Do List")
                 document.getElementById("header").innerHTML = title;
             }
-            
+
             function removeCompleted(buttonId){
                 $(".row" + buttonId).remove();
             }
@@ -114,7 +114,7 @@ Challenge:To-Do ListS21
                 <a id="projects" href="EpkkndProjectsS21.html">Back to Projects</a>
                 <hr>
             </header>
-        
+
             <div class="container-fluid" id="toDo">
                 <div class="row text-center">
                     <div class="col-sm-3">
@@ -135,29 +135,29 @@ Challenge:To-Do ListS21
                 </div>
                 <div class="text-center row" id="list">
                     <div id="title" class="col-sm-3 col-lg-3">
-                        
+
                     </div>
                     <div id="type" class="col-sm-2 col-lg-2">
-                        
+
                     </div>
                     <div id="priority" class="col-sm-3 col-lg-3">
-                    
+
                     </div>
                     <div id="date" class="col-sm-3 col-lg-3">
-                        
+
                     </div>
                     <div id="action" class="col-sm-1 col-lg-1">
-                        
+
                     </div>
-                    
+
                 </div>
             </div>
-            
+
             <div class="col-sm-12 text-center container-fluid">
                         <button id="addItem" type="button">Add New Item</button>
             </div>
-            
-            
+
+
             <div class="container-fluid" id="form">
                 <form>
                     <div class="form-row">
