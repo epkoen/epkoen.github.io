@@ -18,7 +18,10 @@
     font-family: 'Roboto', sans-serif;
     src: url(Fonts/Roboto/Roboto-bold.ttf);
 }
+#football {
+  width: 50%;
 
+}
 .flex-container {
     margin: 150px auto auto auto;
     display: flex;
